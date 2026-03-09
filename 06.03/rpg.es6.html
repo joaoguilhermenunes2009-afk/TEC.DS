@@ -27,12 +27,11 @@
                 alert(`${hero.nome} usou ${habilidade.nome}!
                 Causou ${habilidade.dano} de dano.`);
             }
-            alert(`###STATUS### \n 
-            Boss: ${boss.hp} | Hero: ${hero.hp}`)
+            alert(`###STATUS### \n Boss: ${boss.hp} | Hero: ${hero.hp}`)
     }
     while(boss.hp >= 0 && hero.hp >= 0) {
         msg = "Escolha seu ataque: " + "| 1. Basico | 2. Skill | 3. Ultimate |";
         let ataque = parseInt(promppt(msg));
-        atacarBoss(ataque);
+        atacarBoss(escolhaId);
     }
 </script>
