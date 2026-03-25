@@ -53,10 +53,25 @@ document.getElementById("nome-boss").textContent = `🔱${boss.nome}`;
 document.getElementById("titulo-heroi").textContent = `${hero.titulo}`;
 document.getElementById("titulo-boss").textContent = `${boss.titulo}`;
 
+const turnos =["Aguardando ação"];
+
 const atualizarInterface = (mensagem) => { 
+
     document.getElementById("hp-hero").value = hero.hp;
     document.getElementById("mp-hero").value = hero.mana;
     document.getElementById("en-hero").value = hero.energia;
+
+    document.getElementById("hp-boss").value = boss.hp;
+    document.getElementById("en-boss").value = boss.energia;
+
+    document.getElementById("log-primario"). textContent = mensagem;
+}
+//mensagem de vitoria/derota
+if (boss.hp <= 0) {
+    document.getElementById("tela").innerHTML = "Voce venceu!";
+}
+if (hero.hp <= 0) {
+    document.getElementById("tela").innerHTML = "Voce perdeu!";
 }
 
 //abilidade
@@ -75,6 +90,6 @@ listaHabilidades.forEach(hab => {
     btn.onclick = () => { 
         let mensagem = hero.atacar(boss, hab);
         atualizarInterface(mensagem);
-        boss.atacar(hero);
+        boss.boss_atacar(hero);
     }
 });
